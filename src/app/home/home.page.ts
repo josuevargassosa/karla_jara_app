@@ -18,6 +18,7 @@ import { addIcons } from 'ionicons';
 import { cashOutline, home, person } from 'ionicons/icons';
 
 import { ArticleListComponent } from '../articles/article-list/article-list.component';
+import { BookListComponent } from '../features/libros/book-list/book-list.component';
 
 @Component({
   selector: 'app-home',
@@ -38,6 +39,7 @@ import { ArticleListComponent } from '../articles/article-list/article-list.comp
     IonTabButton,
     IonToolbar,
     ArticleListComponent,
+    BookListComponent,
   ],
 })
 export class HomePage {

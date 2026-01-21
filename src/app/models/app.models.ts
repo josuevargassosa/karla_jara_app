@@ -28,6 +28,16 @@ export interface Libro {
   enlaceExterno?: string;
 }
 
+export interface Book {
+  id: string;
+  title: string;
+  author: string;
+  coverUrl: string;
+  reflection: string;
+  externalUrl: string;
+  date: string;
+}
+
 export interface Video {
   id: string;
   titulo: string;
