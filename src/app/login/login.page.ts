@@ -53,6 +53,7 @@ export class LoginPage {
     if (this.username === 'admin' && this.password === 'admin') {
       localStorage.setItem('auth_token', 'fake-token');
       localStorage.setItem('user_role', 'admin');
+      localStorage.setItem('user_name', 'KARLA');
       localStorage.removeItem('guest');
       void this.router.navigateByUrl('/home');
       return;
@@ -65,6 +66,7 @@ export class LoginPage {
     localStorage.setItem('guest', 'true');
     localStorage.setItem('user_role', 'guest');
     localStorage.removeItem('auth_token');
+    localStorage.removeItem('user_name');
     void this.router.navigateByUrl('/home');
   }
 }

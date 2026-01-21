@@ -1,0 +1,21 @@
+<ion-content fullscreen class="splash">
+  <div class="background">
+    <div
+      class="bubble"
+      *ngFor="let circle of circles"
+      [style.width.px]="circle.size"
+      [style.height.px]="circle.size"
+      [style.top]="circle.top"
+      [style.left]="circle.left"
+      [style.animationDelay]="circle.delay"
+      [style.animationDuration]="circle.duration"
+    >
+      <span>{{ circle.label }}</span>
+    </div>
+  </div>
+
+  <div class="content">
+    <h1>{{ title }}</h1>
+    <p *ngIf="subtitle">{{ subtitle }}</p>
+  </div>
+</ion-content>
