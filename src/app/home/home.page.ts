@@ -5,6 +5,7 @@ import {
   IonContent,
   IonFooter,
   IonHeader,
+  IonIcon,
   IonLabel,
   IonSearchbar,
   IonSegment,
@@ -13,6 +14,10 @@ import {
   IonTabButton,
   IonToolbar,
 } from '@ionic/angular/standalone';
+import { addIcons } from 'ionicons';
+import { home, person } from 'ionicons/icons';
+
+import { ArticleListComponent } from '../articles/article-list/article-list.component';
 
 @Component({
   selector: 'app-home',
@@ -24,6 +29,7 @@ import {
     IonContent,
     IonFooter,
     IonHeader,
+    IonIcon,
     IonLabel,
     IonSearchbar,
     IonSegment,
@@ -31,8 +37,13 @@ import {
     IonTabBar,
     IonTabButton,
     IonToolbar,
+    ArticleListComponent,
   ],
 })
 export class HomePage {
   currentSection = 'articles';
+
+  constructor() {
+    addIcons({ home, person });
+  }
 }

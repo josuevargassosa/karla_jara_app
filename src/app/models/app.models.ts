@@ -14,6 +14,8 @@ export interface Articulo {
   resumen?: string;
   contenido: string;
   imagenUrl?: string;
+  autorNombre?: string;
+  categoria?: string;
   fechaPublicacion: string;
   likesCount: number;
   shareUrl?: string;
