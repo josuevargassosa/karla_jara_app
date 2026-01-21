@@ -32,21 +32,23 @@
 
 <ion-content class="home-content" [fullscreen]="true">
   <div class="home-section" [ngSwitch]="currentSection">
-    <div *ngSwitchCase="'articles'">Componente Artículos aquí</div>
+    <app-article-list *ngSwitchCase="'articles'"></app-article-list>
     <div *ngSwitchCase="'books'">Componente Libros aquí</div>
     <div *ngSwitchCase="'videos'">Componente Videos aquí</div>
     <div *ngSwitchCase="'opinion'">Componente Opinión aquí</div>
     <div *ngSwitchCase="'courses'">Componente Cursos aquí</div>
-    <div *ngSwitchDefault>Componente Artículos aquí</div>
+    <app-article-list *ngSwitchDefault></app-article-list>
   </div>
 </ion-content>
 
 <ion-footer class="home-footer">
   <ion-tab-bar>
-    <ion-tab-button>
+    <ion-tab-button class="tab-active">
+      <ion-icon name="home" aria-hidden="true"></ion-icon>
       <ion-label>Inicio</ion-label>
     </ion-tab-button>
-    <ion-tab-button>
+    <ion-tab-button class="tab-inactive">
+      <ion-icon name="person" aria-hidden="true"></ion-icon>
       <ion-label>Directorio</ion-label>
     </ion-tab-button>
   </ion-tab-bar>
