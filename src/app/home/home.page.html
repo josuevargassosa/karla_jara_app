@@ -1,20 +1,53 @@
-<ion-header [translucent]="true">
+<ion-header class="home-header">
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <div class="home-header__content">
+      <div class="home-logo">THE BRIDGE</div>
+      <ion-searchbar placeholder="Buscar" aria-label="Buscar"></ion-searchbar>
+    </div>
+  </ion-toolbar>
+  <ion-toolbar class="home-segment-toolbar">
+    <ion-segment
+      scrollable="true"
+      [(ngModel)]="currentSection"
+      aria-label="Secciones"
+    >
+      <ion-segment-button value="articles">
+        <ion-label>Artículos</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="books">
+        <ion-label>Libros</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="videos">
+        <ion-label>Videos</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="opinion">
+        <ion-label>Opinión</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="courses">
+        <ion-label>Cursos</ion-label>
+      </ion-segment-button>
+    </ion-segment>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+<ion-content class="home-content" [fullscreen]="true">
+  <div class="home-section" [ngSwitch]="currentSection">
+    <div *ngSwitchCase="'articles'">Componente Artículos aquí</div>
+    <div *ngSwitchCase="'books'">Componente Libros aquí</div>
+    <div *ngSwitchCase="'videos'">Componente Videos aquí</div>
+    <div *ngSwitchCase="'opinion'">Componente Opinión aquí</div>
+    <div *ngSwitchCase="'courses'">Componente Cursos aquí</div>
+    <div *ngSwitchDefault>Componente Artículos aquí</div>
   </div>
 </ion-content>
+
+<ion-footer class="home-footer">
+  <ion-tab-bar>
+    <ion-tab-button>
+      <ion-label>Inicio</ion-label>
+    </ion-tab-button>
+    <ion-tab-button>
+      <ion-label>Directorio</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-footer>
