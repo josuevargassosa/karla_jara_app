@@ -1,19 +1,15 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import {
+  IonAlert,
   IonButton,
   IonContent,
-  IonHeader,
   IonInput,
-  IonItem,
-  IonLabel,
-  IonList,
-  IonText,
-  IonTitle,
-  IonToolbar,
 } from '@ionic/angular/standalone';
+
+import { MockAuthService } from '../core/services/mock-auth.service';
 
 @Component({
   selector: 'app-login',
@@ -21,52 +17,46 @@ import {
   styleUrls: ['./login.page.scss'],
   imports: [
     CommonModule,
-    FormsModule,
+    ReactiveFormsModule,
+    IonAlert,
     IonButton,
     IonContent,
-    IonHeader,
     IonInput,
-    IonItem,
-    IonLabel,
-    IonList,
-    IonText,
-    IonTitle,
-    IonToolbar,
   ],
 })
 export class LoginPage {
-  username = '';
-  password = '';
-  showErrors = false;
-  authError = '';
+  alertOpen = false;
 
-  constructor(private readonly router: Router) {}
+  loginForm = this.formBuilder.group({
+    correo: ['', [Validators.required, Validators.email]],
+    clave: ['', [Validators.required]],
+  });
 
-  handleLogin(): void {
-    this.showErrors = true;
-    this.authError = '';
+  constructor(
+    private readonly formBuilder: FormBuilder,
+    private readonly router: Router,
+    private readonly authService: MockAuthService,
+  ) {}
 
-    if (!this.username.trim() || !this.password.trim()) {
+  onSubmit(): void {
+    if (this.loginForm.invalid) {
+      this.loginForm.markAllAsTouched();
       return;
     }
 
-    if (this.username === 'admin' && this.password === 'admin') {
-      localStorage.setItem('auth_token', 'fake-token');
-      localStorage.setItem('user_role', 'admin');
-      localStorage.setItem('user_name', 'KARLA');
-      localStorage.removeItem('guest');
+    const { correo, clave } = this.loginForm.getRawValue();
+
+    if (correo === 'admin' && clave === 'admin') {
+      this.authService.login();
       void this.router.navigateByUrl('/home');
       return;
     }
 
-    this.authError = 'Credenciales inválidas. Intenta nuevamente.';
+    this.alertOpen = true;
   }
 
-  handleGuest(): void {
-    localStorage.setItem('guest', 'true');
-    localStorage.setItem('user_role', 'guest');
-    localStorage.removeItem('auth_token');
-    localStorage.removeItem('user_name');
+  onGuestAccess(): void {
+    this.authService.enableGuestMode();
     void this.router.navigateByUrl('/home');
   }
 }
