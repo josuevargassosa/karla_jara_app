@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IonContent } from '@ionic/angular/standalone';
 
@@ -20,10 +20,9 @@ interface SplashCircle {
   styleUrls: ['./splash.page.scss'],
   imports: [CommonModule, IonContent],
 })
-export class SplashPage implements OnInit, OnDestroy {
+export class SplashPage implements OnInit {
   title = 'The Bridge';
   subtitle = '';
-  private timeoutId?: number;
 
   circles: SplashCircle[] = [
     { label: 'Amor', size: 130, top: '8%', left: '12%', delay: '0s', duration: '7s' },
@@ -52,14 +51,13 @@ export class SplashPage implements OnInit, OnDestroy {
       this.subtitle = '';
     }
 
-    this.timeoutId = window.setTimeout(() => {
-      void this.router.navigateByUrl('/home');
-    }, 3000);
   }
 
-  ngOnDestroy(): void {
-    if (this.timeoutId) {
-      window.clearTimeout(this.timeoutId);
-    }
+  navigateToLogin(): void {
+    this.MapsToLogin();
+  }
+
+  MapsToLogin(): void {
+    void this.router.navigateByUrl('/login');
   }
 }
