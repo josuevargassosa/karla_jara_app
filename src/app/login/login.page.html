@@ -1,50 +1,52 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Bienvenida</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="login-content">
+  <section class="login-shell">
+    <p class="brand-title">The Bridge</p>
 
-<ion-content class="ion-padding">
-  <section class="login-container">
-    <h2>Accede a The Bridge</h2>
-    <p class="subtitle">Inicia sesión o continúa como invitado.</p>
-
-    <ion-list lines="full">
-      <ion-item>
-        <ion-label position="stacked">Usuario</ion-label>
-        <ion-input
-          [(ngModel)]="username"
-          placeholder="Ingresa tu usuario"
-          autocomplete="username"
-        ></ion-input>
-      </ion-item>
-      <ion-text color="danger" *ngIf="showErrors && !username.trim()">
-        <p class="error-text">El usuario es obligatorio.</p>
-      </ion-text>
-
-      <ion-item>
-        <ion-label position="stacked">Clave</ion-label>
-        <ion-input
-          [(ngModel)]="password"
-          type="password"
-          placeholder="Ingresa tu clave"
-          autocomplete="current-password"
-        ></ion-input>
-      </ion-item>
-      <ion-text color="danger" *ngIf="showErrors && !password.trim()">
-        <p class="error-text">La clave es obligatoria.</p>
-      </ion-text>
-    </ion-list>
-
-    <ion-text color="danger" *ngIf="authError">
-      <p class="error-text">{{ authError }}</p>
-    </ion-text>
-
-    <div class="actions">
-      <ion-button expand="block" (click)="handleLogin()">Iniciar sesión</ion-button>
-      <ion-button expand="block" fill="outline" (click)="handleGuest()">
-        Omitir
-      </ion-button>
+    <div class="welcome">
+      <h1>¡Bienvenido/a!</h1>
+      <p>Inicia sesión para acceder a la comunidad</p>
     </div>
+
+    <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <ion-input
+        class="login-input"
+        formControlName="correo"
+        placeholder="Correo"
+        type="email"
+        autocomplete="username"
+      ></ion-input>
+      <ion-input
+        class="login-input"
+        formControlName="clave"
+        placeholder="Clave"
+        type="password"
+        autocomplete="current-password"
+      ></ion-input>
+
+      <div class="register-row">
+        <button type="button" class="register-link">Registrarse</button>
+      </div>
+
+      <ion-button
+        class="primary-button"
+        expand="block"
+        type="submit"
+        [disabled]="loginForm.invalid"
+      >
+        Ingresar
+      </ion-button>
+    </form>
+
+    <ion-button class="skip-button" fill="clear" (click)="onGuestAccess()">
+      Omitir
+    </ion-button>
   </section>
+
+  <ion-alert
+    [isOpen]="alertOpen"
+    header="Error"
+    message="Credenciales incorrectas"
+    buttons="OK"
+    (didDismiss)="alertOpen = false"
+  ></ion-alert>
 </ion-content>
