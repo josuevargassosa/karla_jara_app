@@ -1,0 +1,22 @@
+.login-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.subtitle {
+  color: var(--ion-color-medium);
+  margin: 0;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.error-text {
+  margin: 6px 12px 0;
+  font-size: 0.85rem;
+}
