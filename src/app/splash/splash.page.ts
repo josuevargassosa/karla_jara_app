@@ -3,7 +3,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IonContent } from '@ionic/angular/standalone';
 
-import { MockAuthService } from '../services/mock-auth.service';
+import { MockAuthService } from '../core/services/mock-auth.service';
 
 interface SplashCircle {
   label: string;
