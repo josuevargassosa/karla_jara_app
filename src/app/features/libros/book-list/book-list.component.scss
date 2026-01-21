@@ -1,0 +1,89 @@
+.book-grid {
+  padding: 0 8px 24px;
+
+  ion-row {
+    row-gap: 16px;
+  }
+
+  ion-col {
+    padding: 8px;
+  }
+}
+
+.book-card {
+  background: transparent;
+  border: none;
+  padding: 0;
+  width: 100%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.book-cover {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.book-date {
+  margin: 0;
+  font-size: 12px;
+  color: #9e9e9e;
+}
+
+.book-modal {
+  --background: #000;
+  color: #fff;
+}
+
+.book-modal__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 20px 32px;
+  text-align: center;
+  gap: 16px;
+}
+
+.book-modal__cover {
+  width: min(240px, 70vw);
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+}
+
+.book-modal__title {
+  margin: 0;
+  font-size: 24px;
+  font-family: 'Playfair Display', 'Times New Roman', serif;
+  color: #fff;
+}
+
+.book-modal__author {
+  margin: 0;
+  font-size: 18px;
+  color: #e57373;
+}
+
+.book-modal__reflection {
+  text-align: left;
+  width: 100%;
+  color: #d6d6d6;
+
+  h4 {
+    margin: 0 0 8px;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #ffffff;
+  }
+
+  p {
+    margin: 0;
+    line-height: 1.6;
+  }
+}
