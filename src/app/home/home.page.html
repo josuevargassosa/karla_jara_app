@@ -40,7 +40,7 @@
 <ion-content class="home-content" [fullscreen]="true">
   <div class="home-section" [ngSwitch]="currentSection">
     <app-article-list *ngSwitchCase="'articles'"></app-article-list>
-    <div *ngSwitchCase="'books'">Componente Libros aquí</div>
+    <app-book-list *ngSwitchCase="'books'"></app-book-list>
     <div *ngSwitchCase="'videos'">Componente Videos aquí</div>
     <div *ngSwitchCase="'opinion'">Componente Opinión aquí</div>
     <div *ngSwitchCase="'courses'">Componente Cursos aquí</div>
