@@ -22,17 +22,35 @@
   align-items: center;
   gap: 16px;
   padding: 8px 16px;
+  position: relative;
 }
 
 .home-logo {
+  flex: 1;
+  text-align: center;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   white-space: nowrap;
 }
 
-ion-searchbar {
-  flex: 1;
+.home-donate {
+  position: absolute;
+  right: 16px;
+  top: 8px;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+  color: var(--home-text);
+}
+
+.home-searchbar {
+  margin: 8px 16px 0;
+  width: calc(100% - 32px);
   --background: #1a1a1a;
   --color: var(--home-text);
   --placeholder-color: rgba(255, 255, 255, 0.6);
@@ -51,9 +69,15 @@ ion-segment {
 
 ion-segment-button {
   --color: var(--home-text);
-  --color-checked: var(--institutional-blue);
+  --color-checked: var(--home-text);
   --indicator-color: var(--institutional-blue);
+  --indicator-height: 3px;
   text-transform: none;
+  font-weight: 500;
+}
+
+ion-segment-button.segment-button-checked {
+  font-weight: 700;
 }
 
 .home-content {

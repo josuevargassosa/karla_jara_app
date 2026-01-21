@@ -15,7 +15,7 @@ import {
   IonToolbar,
 } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
-import { home, person } from 'ionicons/icons';
+import { cashOutline, home, person } from 'ionicons/icons';
 
 import { ArticleListComponent } from '../articles/article-list/article-list.component';
 
@@ -44,6 +44,6 @@ export class HomePage {
   currentSection = 'articles';
 
   constructor() {
-    addIcons({ home, person });
+    addIcons({ cashOutline, home, person });
   }
 }
