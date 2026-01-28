@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import {
   IonButton,
   IonButtons,
@@ -41,8 +41,9 @@ export class BookListComponent implements OnInit {
   books: Book[] = [];
   isModalOpen = false;
   selectedBook?: Book;
+  private readonly contentService = inject(ContentService);
 
-  constructor(private readonly contentService: ContentService) {
+  constructor() {
     addIcons({ close });
   }
 
