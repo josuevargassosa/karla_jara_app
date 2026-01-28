@@ -4,16 +4,26 @@ export const routes: Routes = [
   {
     path: 'splash',
     loadComponent: () =>
-      import('./splash/splash.page').then((m) => m.SplashPage),
+      import('./features/splash/splash.page').then((m) => m.SplashPage),
   },
   {
     path: 'login',
     loadComponent: () =>
-      import('./login/login.page').then((m) => m.LoginPage),
+      import('./features/login/login.page').then((m) => m.LoginPage),
+  },
+  {
+    path: 'register',
+    loadComponent: () =>
+      import('./features/register/register.page').then((m) => m.RegisterPage),
   },
   {
     path: 'home',
-    loadComponent: () => import('./home/home.page').then((m) => m.HomePage),
+    loadComponent: () => import('./features/home/home.page').then((m) => m.HomePage),
+  },
+  {
+    path: 'donaciones',
+    loadComponent: () =>
+      import('./features/donaciones/donaciones.page').then((m) => m.DonacionesPage),
   },
   {
     path: '',

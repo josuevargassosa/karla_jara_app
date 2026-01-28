@@ -1,0 +1,208 @@
+:host {
+  --donation-bg: #ffffff;
+  --donation-text: #1a1a1a;
+  --donation-muted: #737373;
+  --donation-accent: #073c71;
+  --donation-card-bg: #073c71;
+  display: block;
+}
+
+.donation-toolbar {
+  --background: var(--donation-bg);
+  --color: var(--donation-text);
+
+  ion-title {
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 16px;
+  }
+}
+
+.custom-back-button {
+  --color: var(--donation-text);
+  --icon-font-size: 24px;
+}
+
+.donation-content {
+  --background: var(--donation-bg);
+}
+
+.content-wrapper {
+  padding: 24px 20px 40px;
+}
+
+.header-section {
+  text-align: center;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .icon-circle {
+    width: 64px;
+    height: 64px;
+    background: #fff0f0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+
+    ion-icon {
+      font-size: 32px;
+      color: #e53e3e;
+    }
+  }
+
+  h1 {
+    margin: 0 0 12px;
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--donation-text);
+  }
+
+  p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--donation-muted);
+    max-width: 280px;
+  }
+}
+
+.bank-card {
+  background: var(--donation-card-bg);
+  color: #ffffff;
+  border-radius: 28px;
+  padding: 28px;
+  box-shadow: 0 20px 40px rgba(7, 60, 113, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 150px;
+    height: 150px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+  }
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  .bank-logo {
+    width: 40px;
+    height: 40px;
+    background: #ffffff;
+    color: var(--donation-accent);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 14px;
+  }
+
+  .bank-name {
+    font-size: 16px;
+    font-weight: 700;
+  }
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.info-group {
+  label {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    opacity: 0.6;
+    margin-bottom: 4px;
+  }
+
+  p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .account-number {
+    letter-spacing: 1px;
+    font-family: monospace;
+    font-size: 18px;
+  }
+}
+
+.row-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.card-footer {
+  margin-top: 8px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 12px;
+  opacity: 0.7;
+  font-weight: 500;
+  text-align: center;
+}
+
+.other-methods {
+  margin-top: 40px;
+
+  h3 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--donation-text);
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+}
+
+.method-btn {
+  background: #f8f8f8;
+  padding: 18px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  transition: background 0.2s;
+
+  &:active {
+    background: #f0f0f0;
+  }
+
+  ion-icon {
+    font-size: 24px;
+    color: var(--donation-accent);
+  }
+
+  span {
+    flex: 1;
+    font-weight: 600;
+    color: var(--donation-text);
+  }
+
+  .arrow {
+    font-size: 18px;
+    color: var(--donation-muted);
+  }
+}

@@ -1,23 +1,23 @@
-<ion-header class="home-header">
-  <ion-toolbar>
-    <div class="home-header__content">
-      <button class="home-donate" type="button" aria-label="Donaciones">
+<ion-header class="home-header" [translucent]="true">
+  <ion-toolbar class="main-toolbar">
+    <div class="header-content">
+      <div class="header-logo">THE BRIDGE</div>
+      <button class="donate-btn" type="button" aria-label="Donaciones" (click)="navigateToDonations()">
         <ion-icon name="cash-outline" aria-hidden="true"></ion-icon>
       </button>
-      <div class="home-logo">THE BRIDGE</div>
     </div>
-    <ion-searchbar
-      class="home-searchbar"
-      placeholder="Buscar temas..."
-      aria-label="Buscar temas"
-    ></ion-searchbar>
   </ion-toolbar>
-  <ion-toolbar class="home-segment-toolbar">
-    <ion-segment
-      scrollable="true"
-      [(ngModel)]="currentSection"
-      aria-label="Secciones"
-    >
+
+  <ion-toolbar class="search-toolbar">
+    <div class="search-wrapper">
+      <ion-searchbar inputmode="search" placeholder="Buscar temas..." aria-label="Buscar temas"
+        class="custom-searchbar"></ion-searchbar>
+    </div>
+  </ion-toolbar>
+
+  <ion-toolbar class="segment-toolbar">
+    <ion-segment [scrollable]="true" [(ngModel)]="currentSection" aria-label="Secciones" class="chips-segment"
+      mode="md">
       <ion-segment-button value="articles">
         <ion-label>Artículos</ion-label>
       </ion-segment-button>
@@ -41,9 +41,9 @@
   <div class="home-section" [ngSwitch]="currentSection">
     <app-article-list *ngSwitchCase="'articles'"></app-article-list>
     <app-book-list *ngSwitchCase="'books'"></app-book-list>
-    <div *ngSwitchCase="'videos'">Componente Videos aquí</div>
-    <div *ngSwitchCase="'opinion'">Componente Opinión aquí</div>
-    <div *ngSwitchCase="'courses'">Componente Cursos aquí</div>
+    <app-video-list *ngSwitchCase="'videos'"></app-video-list>
+    <app-opinion-list *ngSwitchCase="'opinion'"></app-opinion-list>
+    <app-courses-list *ngSwitchCase="'courses'"></app-courses-list>
     <app-article-list *ngSwitchDefault></app-article-list>
   </div>
 </ion-content>

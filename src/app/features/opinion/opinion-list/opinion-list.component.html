@@ -1,0 +1,21 @@
+<div class="opinion-container">
+    <div class="section-header">
+        <h2 class="section-title">Columnas de Opinión</h2>
+    </div>
+
+    <div class="opinion-list">
+        <article class="opinion-card" *ngFor="let opinion of opiniones">
+            <div class="opinion-header">
+                <span class="opinion-author">{{ opinion.autorNombre }}</span>
+                <span class="dot">·</span>
+                <span class="opinion-date">{{ opinion.fechaPublicacion }}</span>
+            </div>
+            <h3 class="opinion-title">{{ opinion.titulo }}</h3>
+            <p class="opinion-excerpt">{{ opinion.resumen }}</p>
+            <div class="opinion-footer">
+                <span class="likes-count">❤️ {{ opinion.likesCount }}</span>
+                <button class="read-more">Leer más</button>
+            </div>
+        </article>
+    </div>
+</div>

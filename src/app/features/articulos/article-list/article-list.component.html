@@ -1,0 +1,47 @@
+<div class="article-container">
+  <!-- Alerta de Like -->
+  <div class="like-alert" *ngIf="likeMessage">
+    {{ likeMessage }}
+  </div>
+
+  <!-- Artículo Principal (Hero) -->
+  <section class="hero-section" *ngIf="heroArticle as hero">
+    <div class="hero-card" (click)="onLike(hero)">
+      <div class="hero-image-wrapper">
+        <img [src]="hero.imagenUrl" [alt]="hero.titulo" loading="lazy" />
+        <div class="hero-badge">{{ hero.categoria || 'Destacado' }}</div>
+      </div>
+      <div class="hero-meta">
+        <span class="hero-author">{{ hero.autorNombre || 'Redacción' }}</span>
+        <span class="hero-date">Hace 2 horas</span>
+      </div>
+      <h1 class="hero-title">{{ hero.titulo }}</h1>
+      <p class="hero-excerpt">{{ hero.resumen || hero.contenido | slice:0:120 }}...</p>
+    </div>
+  </section>
+
+  <!-- Listado de Recomendaciones -->
+  <section class="recommendations-section">
+    <div class="section-header">
+      <h2 class="section-title">Recomendado para ti</h2>
+      <button class="view-all">Ver todo</button>
+    </div>
+
+    <div class="articles-list">
+      <article class="article-mini-card" *ngFor="let article of secondaryArticles" (click)="onLike(article)">
+        <div class="article-mini-content">
+          <p class="article-mini-category">{{ article.categoria || 'Actualidad' }}</p>
+          <h3 class="article-mini-title">{{ article.titulo }}</h3>
+          <div class="article-mini-footer">
+            <span class="article-mini-author">{{ article.autorNombre || 'Redacción' }}</span>
+            <span class="dot">·</span>
+            <span class="article-mini-date">Hoy</span>
+          </div>
+        </div>
+        <div class="article-mini-image">
+          <img [src]="article.imagenUrl || 'assets/placeholder.jpg'" [alt]="article.titulo" />
+        </div>
+      </article>
+    </div>
+  </section>
+</div>

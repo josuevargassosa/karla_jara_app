@@ -1,0 +1,63 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar class="donation-toolbar">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home" text="" class="custom-back-button"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Donar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="donation-content">
+  <div class="content-wrapper">
+    <div class="header-section">
+      <div class="icon-circle">
+        <ion-icon name="heart" aria-hidden="true"></ion-icon>
+      </div>
+      <h1>Apoya nuestra labor</h1>
+      <p>Tu contribución nos permite seguir creando contenido de valor para toda la comunidad.</p>
+    </div>
+
+    <div class="bank-card">
+      <div class="card-header">
+        <div class="bank-logo">BG</div>
+        <div class="bank-name">Banco de Guayaquil</div>
+      </div>
+
+      <div class="card-body">
+        <div class="info-group">
+          <label>TITULAR</label>
+          <p>Karla Jara</p>
+        </div>
+
+        <div class="info-group">
+          <label>IDENTIFICACIÓN (C.I.)</label>
+          <p>0931491096</p>
+        </div>
+
+        <div class="row-group">
+          <div class="info-group">
+            <label>TIPO DE CUENTA</label>
+            <p>Ahorros</p>
+          </div>
+          <div class="info-group">
+            <label>NÚMERO DE CUENTA</label>
+            <p class="account-number">0019213638</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-footer">
+        <p>Transferencia Bancaria Directa</p>
+      </div>
+    </div>
+
+    <section class="other-methods">
+      <h3>Otros métodos</h3>
+      <div class="method-btn">
+        <ion-icon name="logo-paypal"></ion-icon>
+        <span>PayPal</span>
+        <ion-icon name="chevron-forward-outline" slot="end" class="arrow"></ion-icon>
+      </div>
+    </section>
+  </div>
+</ion-content>

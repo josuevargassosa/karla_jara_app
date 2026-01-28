@@ -1,0 +1,60 @@
+<ion-content class="login-content">
+  <div class="login-container">
+    <h1 class="login-title">Hey, welcome back!<br>Good to see you again!</h1>
+
+    <!-- Social Login Buttons -->
+    <div class="social-buttons">
+      <button type="button" class="social-btn" (click)="onSocialLogin('google')" aria-label="Login with Google">
+        <ion-icon name="logo-google"></ion-icon>
+      </button>
+      <button type="button" class="social-btn" (click)="onSocialLogin('apple')" aria-label="Login with Apple">
+        <ion-icon name="logo-apple"></ion-icon>
+      </button>
+    </div>
+
+    <p class="divider-text">or Login with</p>
+
+    <!-- Login Form -->
+    <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <ion-input class="form-input" formControlName="correo" placeholder="redclick@gmail.com" type="email"
+        fill="solid"></ion-input>
+
+      <div class="password-wrapper">
+        <ion-input class="form-input" formControlName="clave" placeholder="••••••••"
+          [type]="showPassword ? 'text' : 'password'" fill="solid"></ion-input>
+        <button type="button" class="toggle-password" (click)="togglePasswordVisibility()"
+          aria-label="Toggle password visibility">
+          <ion-icon [name]="showPassword ? 'eye-off-outline' : 'eye-outline'"></ion-icon>
+        </button>
+      </div>
+
+      <div class="form-options">
+        <label class="remember-me">
+          <ion-checkbox [(ngModel)]="rememberMe" [ngModelOptions]="{standalone: true}"></ion-checkbox>
+          <span>Remember me</span>
+        </label>
+        <button type="button" class="forgot-password" (click)="onForgotPassword()">
+          Forget password?
+        </button>
+      </div>
+
+      <ion-button class="login-button" expand="block" type="submit" [disabled]="loginForm.invalid">
+        Login
+      </ion-button>
+    </form>
+
+    <p class="signup-link">
+      Don't have account?
+      <button type="button" class="link-button" (click)="navigateToRegister()">Sign Up</button>
+    </p>
+
+    <div class="guest-access">
+      <button type="button" class="guest-button" (click)="onGuestAccess()">
+        Continue as Guest
+      </button>
+    </div>
+  </div>
+
+  <ion-alert [isOpen]="alertOpen" header="Error" message="Credenciales incorrectas" [buttons]="['OK']"
+    (didDismiss)="alertOpen = false"></ion-alert>
+</ion-content>

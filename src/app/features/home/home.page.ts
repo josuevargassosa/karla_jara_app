@@ -17,8 +17,12 @@ import {
 import { addIcons } from 'ionicons';
 import { cashOutline, home, person } from 'ionicons/icons';
 
-import { ArticleListComponent } from '../articles/article-list/article-list.component';
-import { BookListComponent } from '../features/libros/book-list/book-list.component';
+import { Router } from '@angular/router';
+import { ArticleListComponent } from '../articulos/article-list/article-list.component';
+import { BookListComponent } from '../libros/book-list/book-list.component';
+import { VideoListComponent } from '../videos/video-list/video-list.component';
+import { OpinionListComponent } from '../opinion/opinion-list/opinion-list.component';
+import { CoursesListComponent } from '../cursos/courses-list/courses-list.component';
 
 @Component({
   selector: 'app-home',
@@ -40,12 +44,19 @@ import { BookListComponent } from '../features/libros/book-list/book-list.compon
     IonToolbar,
     ArticleListComponent,
     BookListComponent,
+    VideoListComponent,
+    OpinionListComponent,
+    CoursesListComponent,
   ],
 })
 export class HomePage {
   currentSection = 'articles';
 
-  constructor() {
+  constructor(private router: Router) {
     addIcons({ cashOutline, home, person });
+  }
+
+  navigateToDonations() {
+    this.router.navigate(['/donaciones']);
   }
 }

@@ -135,4 +135,44 @@ export class ContentService {
       },
     ];
   }
+
+  getVideos(): any[] {
+    return [
+      {
+        id: 'vid-1',
+        titulo: 'Entendiendo el trauma generacional',
+        thumbnailUrl: 'https://images.unsplash.com/photo-1494173853739-c21f58b16055?auto=format&fit=crop&w=800&q=80',
+        youtubeId: 'dQw4w9WgXcQ',
+        fechaPublicacion: 'Hace 3 días',
+      },
+      {
+        id: 'vid-2',
+        titulo: '5 ejercicios de respiración',
+        thumbnailUrl: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80',
+        youtubeId: 'dQw4w9WgXcQ',
+        fechaPublicacion: 'Hace 1 semana',
+      }
+    ];
+  }
+
+  getOpiniones(): any[] {
+    return [
+      {
+        id: 'op-1',
+        titulo: 'La importancia de la vulnerabilidad',
+        autorNombre: 'Karla Jara',
+        fechaPublicacion: '24 Ene 2026',
+        resumen: 'Aprender a mostrarse tal como uno es es el primer paso para sanar.',
+        likesCount: 156,
+      },
+      {
+        id: 'op-2',
+        titulo: 'Reconectando con tu niño interior',
+        autorNombre: 'Karla Jara',
+        fechaPublicacion: '20 Ene 2026',
+        resumen: 'Pequeñas acciones diarias que marcan la diferencia en tu bienestar.',
+        likesCount: 89,
+      }
+    ];
+  }
 }

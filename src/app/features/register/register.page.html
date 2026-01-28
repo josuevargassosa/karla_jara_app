@@ -1,0 +1,63 @@
+<ion-header class="register-header">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/login" color="dark"></ion-back-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="register-content">
+    <div class="register-container">
+        <h1 class="register-title">Let's go! Register in seconds.</h1>
+
+        <!-- Social Registration Buttons -->
+        <div class="social-buttons">
+            <button type="button" class="social-btn" (click)="onSocialRegister('google')"
+                aria-label="Register with Google">
+                <ion-icon name="logo-google"></ion-icon>
+            </button>
+            <button type="button" class="social-btn" (click)="onSocialRegister('apple')"
+                aria-label="Register with Apple">
+                <ion-icon name="logo-apple"></ion-icon>
+            </button>
+        </div>
+
+        <p class="divider-text">or Register with</p>
+
+        <!-- Registration Form -->
+        <form class="register-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <ion-input class="form-input" formControlName="username" placeholder="User name" type="text"
+                fill="solid"></ion-input>
+
+            <ion-input class="form-input" formControlName="email" placeholder="Email" type="email"
+                fill="solid"></ion-input>
+
+            <div class="password-wrapper">
+                <ion-input class="form-input" formControlName="password" placeholder="Password"
+                    [type]="showPassword ? 'text' : 'password'" fill="solid"></ion-input>
+                <button type="button" class="toggle-password" (click)="togglePasswordVisibility()"
+                    aria-label="Toggle password visibility">
+                    <ion-icon [name]="showPassword ? 'eye-off-outline' : 'eye-outline'"></ion-icon>
+                </button>
+            </div>
+
+            <div class="password-wrapper">
+                <ion-input class="form-input" formControlName="confirmPassword" placeholder="Confirm Password"
+                    [type]="showConfirmPassword ? 'text' : 'password'" fill="solid"></ion-input>
+                <button type="button" class="toggle-password" (click)="toggleConfirmPasswordVisibility()"
+                    aria-label="Toggle confirm password visibility">
+                    <ion-icon [name]="showConfirmPassword ? 'eye-off-outline' : 'eye-outline'"></ion-icon>
+                </button>
+            </div>
+
+            <ion-button class="register-button" expand="block" type="submit" [disabled]="registerForm.invalid">
+                Register
+            </ion-button>
+        </form>
+
+        <p class="login-link">
+            Already have an account?
+            <button type="button" class="link-button" (click)="navigateToLogin()">Log in</button>
+        </p>
+    </div>
+</ion-content>

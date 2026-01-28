@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IonContent } from '@ionic/angular/standalone';
 
-import { MockAuthService } from '../core/services/mock-auth.service';
+import { MockAuthService } from '../../core/services/mock-auth.service';
 
 interface SplashCircle {
   label: string;
@@ -38,7 +38,7 @@ export class SplashPage implements OnInit {
   constructor(
     private readonly authService: MockAuthService,
     private readonly router: Router,
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     const user = this.authService.getCurrentUser();

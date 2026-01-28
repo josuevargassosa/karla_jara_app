@@ -1,0 +1,20 @@
+<div class="video-container">
+    <div class="section-header">
+        <h2 class="section-title">Contenido Multimedia</h2>
+    </div>
+
+    <div class="video-grid">
+        <div class="video-card" *ngFor="let video of videos" (click)="openVideo(video)">
+            <div class="thumbnail-wrapper">
+                <img [src]="video.thumbnailUrl" [alt]="video.titulo" />
+                <div class="play-overlay">
+                    <ion-icon name="play-circle-outline"></ion-icon>
+                </div>
+            </div>
+            <div class="video-info">
+                <h3 class="video-title">{{ video.titulo }}</h3>
+                <p class="video-date">{{ video.fechaPublicacion }}</p>
+            </div>
+        </div>
+    </div>
+</div>

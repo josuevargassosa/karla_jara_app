@@ -1,45 +1,63 @@
-<ion-grid class="book-grid">
-  <ion-row>
-    <ion-col size="6" *ngFor="let book of books">
-      <button class="book-card" type="button" (click)="openBook(book)">
-        <img class="book-cover" [src]="book.coverUrl" [alt]="book.title" />
-        <p class="book-date">{{ book.date }}</p>
-      </button>
-    </ion-col>
-  </ion-row>
-</ion-grid>
+<div class="books-container">
+  <div class="section-header">
+    <h2 class="section-title">Libros recomendados</h2>
+  </div>
 
-<ion-modal [isOpen]="isModalOpen" (didDismiss)="closeModal()">
+  <ion-grid class="book-grid">
+    <ion-row>
+      <ion-col size="6" size-md="4" size-lg="3" *ngFor="let book of books">
+        <div class="book-card-container">
+          <button class="book-card-btn" type="button" (click)="openBook(book)">
+            <div class="book-image-wrapper">
+              <img class="book-cover-img" [src]="book.coverUrl" [alt]="book.title" />
+            </div>
+            <div class="book-info">
+              <h3 class="book-title-text">{{ book.title }}</h3>
+              <p class="book-author-text">{{ book.author }}</p>
+            </div>
+          </button>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>
+
+<!-- Modal de Detalle de Libro Modernizado -->
+<ion-modal [isOpen]="isModalOpen" (didDismiss)="closeModal()" class="modern-modal">
   <ng-template>
-    <ion-header>
+    <ion-header class="ion-no-border">
       <ion-toolbar>
-        <ion-buttons slot="start">
-          <ion-button fill="clear" (click)="closeModal()">
+        <ion-buttons slot="end">
+          <ion-button (click)="closeModal()" class="close-btn">
             <ion-icon name="close" aria-hidden="true"></ion-icon>
           </ion-button>
         </ion-buttons>
-        <ion-title>Recomendación</ion-title>
       </ion-toolbar>
     </ion-header>
-    <ion-content class="book-modal">
-      <div class="book-modal__content" *ngIf="selectedBook as book">
-        <img class="book-modal__cover" [src]="book.coverUrl" [alt]="book.title" />
-        <h2 class="book-modal__title">{{ book.title }}</h2>
-        <h3 class="book-modal__author">{{ book.author }}</h3>
 
-        <section class="book-modal__reflection">
-          <h4>Opinión de Karla</h4>
-          <p>{{ book.reflection }}</p>
-        </section>
+    <ion-content class="book-detail-content">
+      <div class="detail-wrapper" *ngIf="selectedBook as book">
+        <div class="detail-image-box">
+          <img [src]="book.coverUrl" [alt]="book.title" />
+        </div>
 
-        <ion-button
-          expand="block"
-          fill="outline"
-          color="light"
-          (click)="openExternal(book.externalUrl)"
-        >
-          Ver Libro
-        </ion-button>
+        <div class="detail-text-box">
+          <div class="detail-header">
+            <h2 class="detail-title">{{ book.title }}</h2>
+            <p class="detail-author">{{ book.author }}</p>
+          </div>
+
+          <div class="detail-divider"></div>
+
+          <section class="detail-section">
+            <label>OPINIÓN DE KARLA</label>
+            <p class="detail-reflection">{{ book.reflection }}</p>
+          </section>
+
+          <ion-button expand="block" class="buy-button" (click)="openExternal(book.externalUrl)">
+            Ver en tienda
+          </ion-button>
+        </div>
       </div>
     </ion-content>
   </ng-template>

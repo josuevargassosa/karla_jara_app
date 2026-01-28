@@ -10,7 +10,6 @@ import {
   IonIcon,
   IonModal,
   IonRow,
-  IonTitle,
   IonToolbar,
 } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
@@ -35,7 +34,6 @@ import { Book } from '../../../models/app.models';
     IonIcon,
     IonModal,
     IonRow,
-    IonTitle,
     IonToolbar,
   ],
 })
