@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { ContentService } from '../../../core/services/content.service';
 
 @Component({
@@ -11,8 +11,7 @@ import { ContentService } from '../../../core/services/content.service';
 })
 export class OpinionListComponent implements OnInit {
     opiniones: any[] = [];
-
-    constructor(private contentService: ContentService) { }
+    private readonly contentService = inject(ContentService);
 
     ngOnInit(): void {
         this.opiniones = this.contentService.getOpiniones();

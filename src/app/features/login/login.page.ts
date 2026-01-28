@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, FormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -43,17 +43,16 @@ export class LoginPage {
   alertOpen = false;
   showPassword = false;
   rememberMe = false;
+  private readonly formBuilder = inject(FormBuilder);
+  private readonly router = inject(Router);
+  private readonly authService = inject(MockAuthService);
 
   loginForm = this.formBuilder.group({
     correo: ['', [Validators.required, Validators.email]],
     clave: ['', [Validators.required]],
   });
 
-  constructor(
-    private readonly formBuilder: FormBuilder,
-    private readonly router: Router,
-    private readonly authService: MockAuthService,
-  ) {
+  constructor() {
     addIcons({ logoGoogle, logoApple, eyeOutline, eyeOffOutline, arrowBack });
   }
 

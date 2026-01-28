@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 
 import { ContentService } from '../../../core/services/content.service';
 import { MockAuthService } from '../../../core/services/mock-auth.service';
@@ -18,10 +18,8 @@ export class ArticleListComponent implements OnInit {
   secondaryArticles: Articulo[] = [];
   likeMessage = '';
 
-  constructor(
-    private readonly contentService: ContentService,
-    private readonly authService: MockAuthService,
-  ) { }
+  private readonly contentService = inject(ContentService);
+  private readonly authService = inject(MockAuthService);
 
   ngOnInit(): void {
     const articles = this.contentService.getArticulos();

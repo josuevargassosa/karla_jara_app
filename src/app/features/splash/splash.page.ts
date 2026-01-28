@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { IonContent } from '@ionic/angular/standalone';
 
@@ -23,6 +23,8 @@ interface SplashCircle {
 export class SplashPage implements OnInit {
   title = 'The Bridge';
   subtitle = '';
+  private readonly authService = inject(MockAuthService);
+  private readonly router = inject(Router);
 
   circles: SplashCircle[] = [
     { label: 'Amor', size: 130, top: '8%', left: '12%', delay: '0s', duration: '7s' },
@@ -34,11 +36,6 @@ export class SplashPage implements OnInit {
     { label: 'Bienestar', size: 120, top: '12%', left: '42%', delay: '1.2s', duration: '9.5s' },
     { label: 'Relaciones', size: 100, top: '72%', left: '70%', delay: '0.3s', duration: '8.5s' },
   ];
-
-  constructor(
-    private readonly authService: MockAuthService,
-    private readonly router: Router,
-  ) { }
 
   ngOnInit(): void {
     const user = this.authService.getCurrentUser();

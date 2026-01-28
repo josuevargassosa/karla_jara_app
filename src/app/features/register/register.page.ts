@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -35,6 +35,8 @@ import { logoGoogle, logoApple, eyeOutline, eyeOffOutline, arrowBack } from 'ion
 export class RegisterPage {
     showPassword = false;
     showConfirmPassword = false;
+    private readonly formBuilder = inject(FormBuilder);
+    private readonly router = inject(Router);
 
     registerForm = this.formBuilder.group({
         username: ['', [Validators.required, Validators.minLength(3)]],
@@ -43,10 +45,7 @@ export class RegisterPage {
         confirmPassword: ['', [Validators.required]],
     });
 
-    constructor(
-        private readonly formBuilder: FormBuilder,
-        private readonly router: Router,
-    ) {
+    constructor() {
         addIcons({ logoGoogle, logoApple, eyeOutline, eyeOffOutline, arrowBack });
     }
 

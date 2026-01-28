@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {
@@ -51,8 +51,9 @@ import { CoursesListComponent } from '../cursos/courses-list/courses-list.compon
 })
 export class HomePage {
   currentSection = 'articles';
+  private readonly router = inject(Router);
 
-  constructor(private router: Router) {
+  constructor() {
     addIcons({ cashOutline, home, person });
   }
 

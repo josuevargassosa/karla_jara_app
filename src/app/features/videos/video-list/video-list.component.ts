@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { IonIcon } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import { playCircleOutline } from 'ionicons/icons';
@@ -15,8 +15,9 @@ import { Video } from '../../../models/app.models';
 })
 export class VideoListComponent implements OnInit {
     videos: any[] = [];
+    private readonly contentService = inject(ContentService);
 
-    constructor(private contentService: ContentService) {
+    constructor() {
         addIcons({ playCircleOutline });
     }
 
